@@ -32,7 +32,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sqlQuery = "SELECT * FROM books WHERE idBook=5";
+$sqlQuery = "SELECT * FROM books WHERE idBook=7";
 
 $result = $conn->query($sqlQuery);
 if ($result->num_rows > 0) {
