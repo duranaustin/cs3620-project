@@ -53,7 +53,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sqlDelete = "DELETE FROM books WHERE idBook=5";
+$sqlDelete = "DELETE FROM books WHERE idBook=7";
 
 if ($conn->query($sqlDelete) === TRUE) {
     echo "Record deleted successfully";
