@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 $sqlInsert = "INSERT INTO books (idbook, bookTitle, bookAuthor)
-VALUES (7,'Extreme Ownership', 'Some Seal')";
+VALUES (7,'A Guide to SQL', 'Phil Pratt')";
 
 if ($conn->query($sqlInsert) === TRUE) {
   echo "New record created successfully <br>";
