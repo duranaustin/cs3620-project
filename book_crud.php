@@ -27,7 +27,7 @@ $sqlQuery = "SELECT * FROM books WHERE idBook=5";
 
 $result = $conn->query($sqlQuery);
 
-echo "This is the record that was read from the Database: <br>" . $result;
+echo $result;
 
 $sqlDelete = "DELETE FROM books WHERE idBook=5";
 
