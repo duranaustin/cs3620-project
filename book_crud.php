@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 $sqlInsert = "INSERT INTO books (idBook, bookTitle, bookAuthor)
-VALUES (6,'Extreme Ownership', 'Some Seal')";
+VALUES (7,'Extreme Ownership', 'Some Seal')";
 
 if ($conn->query($sqlInsert) === TRUE) {
   echo "New record created successfully";
@@ -23,11 +23,35 @@ if ($conn->query($sqlInsert) === TRUE) {
   echo "Error: " . $sqlInsert . "<br>" . $conn->error;
 }
 
+$conn->close();
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
 $sqlQuery = "SELECT * FROM books WHERE idBook=5";
 
 $result = $conn->query($sqlQuery);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo "idBook: " . $row["idBook"]. " - bookTitle: " . $row["bookTitle"]. " -bookAuthor " . $row["bookAuthor"]. "<br>";
+    }
+  } else {
+    echo "0 results";
+  }
 
-echo $result;
+$conn->close();
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
 $sqlDelete = "DELETE FROM books WHERE idBook=5";
 
