@@ -14,7 +14,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sqlInsert = "INSERT INTO books (idBook, bookTitle, bookAuthor)
+$sqlInsert = "INSERT INTO books (idbook, bookTitle, bookAuthor)
 VALUES (7,'Extreme Ownership', 'Some Seal')";
 
 if ($conn->query($sqlInsert) === TRUE) {
@@ -32,13 +32,13 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sqlQuery = "SELECT * FROM books WHERE idBook=7";
+$sqlQuery = "SELECT * FROM books WHERE idbook=7";
 
 $result = $conn->query($sqlQuery);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      echo "idBook: " . $row["idBook"]. " - bookTitle: " . $row["bookTitle"]. " -bookAuthor " . $row["bookAuthor"]. "<br>";
+      echo "idbook: " . $row["idbook"]. " - bookTitle: " . $row["bookTitle"]. " -bookAuthor " . $row["bookAuthor"]. "<br>";
     }
   } else {
     echo "0 results";
@@ -53,7 +53,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sqlDelete = "DELETE FROM books WHERE idBook=7";
+$sqlDelete = "DELETE FROM books WHERE idbook=7";
 
 if ($conn->query($sqlDelete) === TRUE) {
     echo "Record deleted successfully";
