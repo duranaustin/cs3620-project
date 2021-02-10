@@ -1,31 +1,59 @@
 <?php
-
 require_once('./user/userDAO.php');
 
-Class User{
+class User {
+  // Properties
+  private $user_id;
+  private $username;
+  private $first_name;
+  private $last_name;
+  private $password;
 
-    private $username;
-    private $user_id;
+  // Methods
+  function __construct() {
+  }
+  function getUserId(){
+    return $this->user_id;
+  }
+  function setUserId($user_id){
+    $this->user_id = $user_id;
+  }
+  function getUsername() {
+    return $this->username;
+  }
+  function setUsername($username){
+    $this->username = $username;
+  }
+  function getFirstName() {
+    return $this->first_name;
+  }
+  function setFirstName($first_name){
+    $this->first_name = $first_name;
+  }
+  function getLastName() {
+    return $this->last_name;
+  }
+  function setLastName($last_name){
+    $this->last_name = $last_name;
+  }
+  function setPassword($password){
+      $this->password = hash("sha256", $password);
+  }
 
-    public function getUser($user_id){
-        $this->user_id = $user_id;
+  function getPassword(){
+      return $this->password;
+  }
 
-        $userDAO = new userDAO();
-        $userDAO->getUser($this);
+  function getUser($user_id){
+    $this->user_id = $user_id;
+    $userDAO = new userDAO();
+    $userDAO->getUser($this);
+    return $this;
+  }
 
-        return $this;
-    }
-
-    public function getUsername(){
-        return $this->username;
-    }
-
-    public function setUsername($username){
-        $this->username = $username;
-    }
-
-    public function getUserId(){
-        return $this->user_id;
-    }
+  function createUser(){
+      $userDAO = new userDAO();
+      $userDAO->createUser($this);
+  }
 }
 ?>
