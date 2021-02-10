@@ -38,7 +38,7 @@ class UserDAO {
 
     $conn->close();
 
-    echo "user created"
+    echo "user created";
   }
 
   function deleteUser($un){
@@ -49,7 +49,7 @@ class UserDAO {
 
     $conn->close();
 
-    echo "user deleted"
+    echo "user deleted";
   }
 }
 ?>
