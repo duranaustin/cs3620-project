@@ -2,7 +2,7 @@
     require_once('./header.php');
 ?>
 
-<form method="POST" target="user_insert.php">
+<form method="POST" action="user_insert.php">
 
     Username:<input type="text" name="username"/><br />
 
