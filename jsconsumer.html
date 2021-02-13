@@ -22,7 +22,7 @@
     }
 
     function helloUsername(username, first_name, last_name){
-        fetch('https://books-austinduran.azurewebsites.net/users.php?username=' . username + '&first_name=' . first_name + '&last_name=' . last_name)
+        fetch('https://books-austinduran.azurewebsites.net/users.php?username=' + username + '&first_name=' + first_name + '&last_name=' + last_name)
         .then(response => response.json())
         .then(
 
@@ -45,9 +45,9 @@
 Userid: <input type="text" id="theUserId" />
 <input type="button" value="Get User" onclick="helloUserId(document.getElementById('theUserId').value);" /> <br><br>
 Username: <input type="text" id="theUsername" />
-<input type="button" value="Get User by Data" onclick="helloUsername(document.getElementById('theUsername').value, document.getElementById('theFirstName').value, document.getElementById('theLastName').value);" /><br>
 First Name: <input type="text" id="theFirstName" /><br>
 Last name: <input type="text" id="theLastName" />
+<input type="button" value="Get User by Data" onclick="helloUsername(document.getElementById('theUsername').value, document.getElementById('theFirstName').value, document.getElementById('theLastName').value);" /><br>
 <div id="firstName"></div>
 <div id="lastName"></div>
 <div id="userName"></div>
