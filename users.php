@@ -8,6 +8,7 @@
    require_once('./user/user.php');
 
     $user = new user();
+    echo ("get id is equal to " $_GET("id"))
     if($_GET["id"] != null){
         $user->getUser($_GET["id"]);
     }
