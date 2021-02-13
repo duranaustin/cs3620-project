@@ -28,6 +28,8 @@ class UserDAO {
     require_once('./utilities/connection.php');
     
     $sql = "SELECT first_name, last_name, username, iduser FROM user WHERE username =" . $user->getUsername() ."AND first_name = " . $user->getFirstName() ."AND last_name =" . $user->getLastName();
+    
+    echo "this is the sql string" + $sql
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
