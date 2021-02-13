@@ -3,6 +3,7 @@
 <script>
 
     function hello(userid){
+        console.log(userid);
         fetch('https://books-austinduran.azurewebsites.net/users.php?id=' + userid)
         .then(response => response.json())
         .then(
