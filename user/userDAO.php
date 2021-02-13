@@ -29,6 +29,7 @@ class UserDAO {
     
     $sql = "SELECT first_name, last_name, username, iduser FROM user WHERE username =" . $user->getUsername() . "AND first_name = " .$user.getFirstName() . "AND last_name =" .$user.getLastName();
     echo '<script>console.log('.$sql.')</script>';
+    echo $sql;
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
