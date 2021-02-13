@@ -6,9 +6,18 @@
     error_reporting(E_ALL);
 
    require_once('./user/user.php');
+   echo '<script>console.log('.$_GET("username").')</script>';
+   echo '<script>console.log('.$_GET("first_name").')</script>';
+   echo '<script>console.log('.$_GET("last_name").')</script>';
+
     $username = $_GET["username"];
     $first_name = $_GET["first_name"];
     $last_name = $_GET["last_name"];
+
+    echo '<script>console.log('.$username.')</script>';
+    echo '<script>console.log('.$first_name.')</script>';
+    echo '<script>console.log('.$last_name.')</script>';
+
     //$id = $_GET["id"];
     $user = new user();
     //$user->getUser($id);
