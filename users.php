@@ -9,9 +9,9 @@
     $user = new user();
     if($_GET["id"] != null){
         $user->getUser($_GET["id"]);
+    }else{
+        $user->getUserByData($_GET["username"], $_GET["first_name"], $_GET["last_name"]);
     }
-    $user->getUserByData($_GET["username"], $_GET["first_name"], $_GET["last_name"]);
-
 
     echo json_encode($user);
 ?>
