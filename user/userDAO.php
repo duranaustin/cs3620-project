@@ -26,8 +26,8 @@ class UserDAO {
 
   function getUserByData($user){
     require_once('./utilities/connection.php');
-    
-    $sql = "SELECT first_name, last_name, username, iduser FROM user WHERE username =" . $user->getUsername() . "AND first_name = " .$user.getFirstName() . "AND last_name =" .$user.getLastName();
+    echo '<script>console.log('.$user.getUsername().')</script>';
+    $sql = 'SELECT first_name, last_name, username, iduser FROM user WHERE username ='.$user->getUsername().'AND first_name ='.$user.getFirstName().'AND last_name ='.$user.getLastName();
     echo '<script>console.log('.$sql.')</script>';
     echo $sql;
     $result = $conn->query($sql);
