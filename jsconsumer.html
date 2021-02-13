@@ -22,8 +22,6 @@
     }
 
     function helloUsername(username, first_name, last_name){
-        $url = "https://books-austinduran.azurewebsites.net/users.php?username=" + username + "&first_name=" + first_name + "&last_name=" + last_name;
-        console.log($url);
         fetch('https://books-austinduran.azurewebsites.net/users.php?username=' + username + '&first_name=' + first_name + '&last_name=' + last_name)
         .then(response => response.json())
         .then(
