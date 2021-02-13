@@ -6,9 +6,10 @@
     error_reporting(E_ALL);
 
     require_once('./user/user.php');
-    //$id = $_GET["id"];
     $user = new user();
-    //$user->getUser($id);
+    if($_GET["id"] != null){
+        $user->getUser($_GET["id"]);
+    }
     $user->getUserByData($_GET["username"], $_GET["first_name"], $_GET["last_name"]);
 
 
