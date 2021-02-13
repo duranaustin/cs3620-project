@@ -7,7 +7,7 @@
 
     require_once('./user/user.php');
     $user = new user();
-    if(if isset($_GET["id"])){
+    if(isset($_GET["id"])){
         $user->getUser($_GET["id"]);
     }else{
         $user->getUserByData($_GET["username"], $_GET["first_name"], $_GET["last_name"]);
