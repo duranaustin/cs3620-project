@@ -9,16 +9,16 @@
 
     $user = new user();
     
-    if(isset($_GET["id"])){
+    if(!empty($_GET["id"])){
         $user->getUser($_GET["id"]);
     }
-    elseif(isset($_GET["username"])){
+    elseif(!empty($_GET["username"])){
          $user->getUserByUsername($_GET["username"]);
     }
-    elseif(isset($_GET("firstname"))){
+    elseif(!empty($_GET("firstname"))){
          $user->getUserByFirstName($_GET["firstname"]);
     }
-    elseif(isset($_GET["lastname"])){
+    elseif(!empty($_GET["lastname"])){
          $user->getUserByLastName($_GET["lastname"]);
     }
     else{
