@@ -21,33 +21,61 @@
         });
     }
 
-    function helloUsername(username, first_name, last_name){
-        fetch('https://books-austinduran.azurewebsites.net/users.php?username=' + username + '&first_name=' + first_name + '&last_name=' + last_name)
+    function helloUsername(username){
+        fetch('https://books-austinduran.azurewebsites.net/users.php?username=' + username)
         .then(response => response.json())
         .then(
 
             function (data){
-                document.getElementById("firstName").innerHTML = data.first_name;
-                document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
             }
 
         ).catch((error) => {
             alert("That user does not yet exist")
-            document.getElementById("firstName").innerHTML = "";
-                document.getElementById("lastName").innerHTML = "";
                 document.getElementById("userName").innerHTML = "";
+        });
+    }
+
+    function helloFirstName(first_name){
+        fetch('https://books-austinduran.azurewebsites.net/users.php?firstname=' + first_name)
+        .then(response => response.json())
+        .then(
+
+            function (data){
+                document.getElementById("firstName").innerHTML = data.first_name;
+            }
+
+        ).catch((error) => {
+            alert("That user does not yet exist")
+                document.getElementById("firstName").innerHTML = "";
+        });
+    }
+
+    function helloLastName(last_name){
+        fetch('https://books-austinduran.azurewebsites.net/users.php?lastname=' + last_name)
+        .then(response => response.json())
+        .then(
+
+            function (data){
+                document.getElementById("lastName").innerHTML = data.last_name;
+            }
+
+        ).catch((error) => {
+            alert("That user does not yet exist")
+                document.getElementById("lastName").innerHTML = "";
         });
     }
 
 </script>
 
 Userid: <input type="text" id="theUserId" />
-<input type="button" value="Get User" onclick="helloUserId(document.getElementById('theUserId').value);" /> <br><br>
+<input type="button" value="Get User by Id" onclick="helloUserId(document.getElementById('theUserId').value);" /> <br><br>
 Username: <input type="text" id="theUsername" />
+<input type="button" value="Get User by Username" onclick="helloUsername(document.getElementById('theUsername').value);" /><br>
 First Name: <input type="text" id="theFirstName" /><br>
+<input type="button" value="Get User by First Name" onclick="helloFirstName(document.getElementById('theFirstName').value);" /><br>
 Last name: <input type="text" id="theLastName" /> <br>
-<input type="button" value="Get User by Data" onclick="helloUsername(document.getElementById('theUsername').value, document.getElementById('theFirstName').value, document.getElementById('theLastName').value);" /><br>
+<input type="button" value="Get User by Last Name" onclick="helloLastName(document.getElementById('theLastName').value);" /><br>
 <div id="firstName"></div>
 <div id="lastName"></div>
 <div id="userName"></div>

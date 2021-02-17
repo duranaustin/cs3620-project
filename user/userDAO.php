@@ -24,13 +24,51 @@ class UserDAO {
     $conn->close();
   }
 
-  function getUserByData($user){
+  function getUserByUsername($user){
     require_once('./utilities/connection.php');
     $username = $user->getUsername();
+
+    $sql = "SELECT first_name, last_name, username, iduser FROM user WHERE username = '$username';";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $user->setFirstName($row["first_name"]);
+        $user->setLastName($row["last_name"]);
+        $user->setUsername($row["username"]);
+    }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+  }
+
+  function getUserByFirstName($user){
+    require_once('./utilities/connection.php');
     $first_name = $user->getFirstName();
+
+    $sql = "SELECT first_name, last_name, username, iduser FROM user WHERE first_name = '$first_name';";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $user->setFirstName($row["first_name"]);
+        $user->setLastName($row["last_name"]);
+        $user->setUsername($row["username"]);
+    }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+  }
+
+  function getUserByLastName($user){
+    require_once('./utilities/connection.php');
     $last_name = $user->getLastName();
 
-    $sql = "SELECT first_name, last_name, username, iduser FROM user WHERE username = '$username' AND first_name = '$first_name' AND last_name = '$last_name';";
+    $sql = "SELECT first_name, last_name, username, iduser FROM user WHERE last_name = '$last_name';";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
