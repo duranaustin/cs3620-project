@@ -12,13 +12,15 @@
     if(isset($_GET["id"])){
         $user->getUser($_GET["id"]);
     }
-    //else if(isset($_GET["username"])){
-    //     $user->getUserByUsername($_GET["username"]);
-    // }else if (isset($_GET("firstname"))){
-    //     $user->getUserByFirstName($_GET["firstname"]);
-    // }else if (isset($_GET["lastname"])){
-    //     $user->getUserByLastName($_GET["lastname"]);
-    // }
+    if(isset($_GET["username"])){
+         $user->getUserByUsername($_GET["username"]);
+    }
+    if(isset($_GET("firstname"))){
+         $user->getUserByFirstName($_GET["firstname"]);
+    }
+    if(isset($_GET["lastname"])){
+         $user->getUserByLastName($_GET["lastname"]);
+    }
 
     echo json_encode($user);
 ?>
