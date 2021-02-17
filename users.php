@@ -15,7 +15,7 @@
     elseif(!empty($_GET["username"])){
          $user->getUserByUsername($_GET["username"]);
     }
-    elseif(!empty($_GET("firstname"))){
+    elseif(!empty($_GET("firstname")){
          $user->getUserByFirstName($_GET["firstname"]);
     }
     elseif(!empty($_GET["lastname"])){
