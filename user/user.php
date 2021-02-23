@@ -12,6 +12,12 @@ class User implements \JsonSerializable {
   // Methods
   function __construct() {
   }
+
+  function checkLogin($username, $password){
+    $userDAO = new userDAO();
+    return $userDAO->checkLogin($username, $password);
+  }
+
   function getUserId(){
     return $this->user_id;
   }

@@ -5,6 +5,29 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 class UserDAO {
+  function checkLogin($passedinusername, $passedinpassword){
+
+    echo $passedinusername;
+    echo hash("sha256", trim($passedinpassword));
+
+    require_once('./utilities/connection.php');
+    $user_id = 0;
+    $sql = "SELECT iduser FROM user WHERE username = '" . $passedinusername . "' AND password = '" . hash("sha256", trim($passedinpassword)) . "'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $user_id = $row["iduser"];
+      }
+    }
+    else {
+        echo "0 results";
+    }
+    $conn->close();
+    return $user_id;
+  }
+
   function getUser($user){
     require_once('./utilities/connection.php');
     
