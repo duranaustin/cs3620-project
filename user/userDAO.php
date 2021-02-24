@@ -7,13 +7,10 @@ error_reporting(E_ALL);
 class UserDAO {
   function checkLogin($passedinusername, $passedinpassword){
 
-    echo $passedinusername;
-    echo hash("sha256", trim($passedinpassword));
-
     require_once('./utilities/connection.php');
     $user_id = 0;
     $sql = "SELECT iduser FROM user WHERE username = '" . $passedinusername . "' AND password = '" . hash("sha256", trim($passedinpassword)) . "'";
-
+    
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -110,23 +107,22 @@ class UserDAO {
   function createUser($user){
     require_once('./utilities/connection.php');
     
-    $sql = "INSERT INTO cs3620.user
-    (
-    `username`,
+    $stmt = $conn->prepare("INSERT INTO cs3620.user (`username`,
     `password`,
     `first_name`,
-    `last_name`)
-    VALUES
-    ('" . $user->getUsername() . "',
-    '" . $user->getPassword() . "',
-    '" . $user->getFirstName() . "',
-    '" . $user->getLastName() . "'
-    );";
-    $result = $conn->query($sql);
+    `last_name`) VALUES (?, ?, ?, ?)");
 
+    $un = $user->getUsername();
+    $pw = $user->getPassword();
+    $fn = $user->getFirstName();
+    $ln = $user->getLastName();
+
+    $stmt->bind_param("ssss", $un, $pw, $fn, $ln);
+    $stmt->execute();
+
+    $stmt->close();
     $conn->close();
-
-    echo "user created";
+    header("Location: login.html"); //navigate to login.html after user created
   }
 
   function deleteUser($un){

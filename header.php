@@ -1,3 +1,6 @@
 <h1>
-This is the header!
+    Let's create your SHOWS User ID
 </h1>
+<h2>
+    Register
+</h2>

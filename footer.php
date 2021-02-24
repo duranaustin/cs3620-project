@@ -6,5 +6,5 @@ error_reporting(E_ALL);
 ?>
 
 <footer>
-This is the footer!
+    Let's get you Registered!
 </footer>
