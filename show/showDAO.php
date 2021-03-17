@@ -112,7 +112,7 @@ class ShowDAO {
     $result = $conn->query($sql);
 
     if($conn->query($sql) === TRUE){
-      echo "show deleted";
+      //echo "show deleted";
     }else{
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
