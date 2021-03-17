@@ -38,19 +38,18 @@ class Show implements \JsonSerializable {
     $this->show_rating = $show_rating;
   }
 
-  function getMyShows(){
+  function getMyShows($uid){
     $showDAO = new showDAO();
-    return $showDAO->getAllShows();
+    return $showDAO->getShowsByUserId($uid);
   }
 
-  function createShow(){
+  function deleteShow($uid, $sid){
     $showDAO = new showDAO();
-    $showDAO->createShow($this);
+    $showDAO->deleteShow($uid, $sid);
   }
-
-  function deleteShow($show_name){
+  function createShow($uid){
     $showDAO = new showDAO();
-    $showDAO->deleteShow($show_name);
+    $showDAO->createShow($this, $uid);
   }
 
   public function jsonSerialize(){
